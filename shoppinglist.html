@@ -7,7 +7,7 @@
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="http://dev.jtsage.com/cdn/spinbox/latest/jqm-spinbox.min.js"></script>
 <style>
-<script>
+
 body {
   margin:0;
   min-width: 250px;
@@ -99,7 +99,7 @@ text-algn: center;
 
 /* Style the input */
 input {
-  border: none;
+  border:  none;
   width: 75%;
   padding: 10px;
   float: left;
@@ -132,9 +132,34 @@ input {
   <span onclick="newElement()" class="addBtn">Add</span>
 </div>
 
-<ul id="myUL">
-    <p>fruits</p>
-    <li>Apples</li>
+<ul id="myUL" > 
+    <h3>Dairy</h3>
+    <li>Eggs</li>
+    <li> Milk </li>
+    <li>Butter</li> 
+    <li>Margarine</li>
+    <li>Cheese</li>
+    <h3>Bakery</h3>
+    <li>Bread</li>
+    <li>French Bread</li>
+    <li>Speciality Bread</li>
+    <h3>Beverages</h3>
+    <li>Bottled Water</li>
+    <li>Tea</li>
+    <li>Coffe</li>
+</ul>   
+
+<script>
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement ("SPAN");
+  var txt = document.createTextNode("\u00D7")
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
 </script>
 </body>
 </html>
