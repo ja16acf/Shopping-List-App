@@ -2,18 +2,20 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" 
+href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script
+ src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="http://dev.jtsage.com/cdn/spinbox/latest/jqm-spinbox.min.js"></script>
-<style>
 
+<style>
 body {
   margin:0;
   min-width: 250px;
 }
 
-/* Include the padding and border in an element's total width and height 
+/* Include the padding and border in an element's total width and height */
 * {
   box-sizing: border-box;
 }
@@ -28,19 +30,19 @@ ul {
 ul li {
   cursor: pointer;
   position: relative;
-  padding: 12px 8px 12px 40px
+  padding: 12px 8px 12px 40px;
   background: #eee;
   font-size: 18px;
   transition:0.2s;
 
-/* make the list items unselectable */
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/* Set all odd list items to a different color (zebra-stripes)
+/* Set all odd list items to a different color (zebra-stripes) */
 ul li:nth-child(odd) {
   background: #f9f9f9;
 }
@@ -50,22 +52,24 @@ ul li:hover {
   background: #ddd;
 }
 
-/* When clicked on, add a background color and strike out text
+/* When clicked on, add a background color and strike out text */
 ul li.checked {
   background: #888;
   color: #fff;
-  text-decoration: line-through;
+  text-decoration: ;
 }
 
 /* Add a "checked" mark when clicked on */
-ul li.checked: :before {
+ul li.checked::before {
   content: '';
   position: absolute;
   border-color: #fff;
   border-style: solid;
   border-width: 0 2px 2px 0;
   top: 10px;
-  left: 15px:;
+  left: 16px; 
+  transform: rotate(45deg);
+  height: 15px;
   width: 7px;
 }
 
@@ -87,14 +91,14 @@ ul li.checked: :before {
   background-color: #f44336;
   padding: 30px 40px;
   color: blue;
-text-algn: center;
+  text-algn: center;
 }
 
 /* Clear floats after the header */
 .header:after {
   content: "";
   display: table;
-  clear:both;
+  clear: both;
 }
 
 /* Style the input */
@@ -120,7 +124,7 @@ input {
 }
 
 .addBtn:hover {
-  bavkground-color: #bbb;
+  backkground-color: #bbb;
 }
 </style>
 </head>
@@ -135,7 +139,7 @@ input {
 <ul id="myUL" > 
     <h3>Dairy</h3>
     <li>Eggs</li>
-    <li class="checked"> Milk </li>
+    <li > Milk </li>
     <li>Butter</li> 
     <li>Margarine</li>
     <li>Cheese</li>
@@ -179,6 +183,33 @@ list.addEventListener('click', function(ev) {
   }
 }, false);
 
+//Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
 </script>
+
 </body>
 </html>
